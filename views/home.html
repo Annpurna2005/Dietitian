@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrition Plans</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(0, 0, 0, 0.3); 
+    padding: 15px 30px;
+    color: white;
+    border-radius: 30px; 
+    margin: 10px; 
+    backdrop-filter: blur(10px); 
+    position: fixed; 
+    width: calc(100% - 20px);
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 9999;
+}
+        .logo {
+            font-size: 20px;
+            font-weight: bold;
+        }
+        nav ul {
+            list-style: none;
+    display: flex;
+    gap: 20px;
+    padding: 0;
+        }
+        nav ul li {
+            display: inline;
+        }
+        nav ul li a {
+            color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 20px;
+    transition: background 0.3s ease-in-out;
+
+        }
+        nav ul li a:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+.btn {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    padding: 10px 18px;
+    border-radius: 25px;
+    color: black !important;
+    font-weight: bold;
+    transition: transform 0.2s ease-in-out;
+   
+}
+
+.btn {
+    margin-left: auto; 
+    margin-right: 20px; 
+}
+.btn:hover {
+    transform: scale(1.1);
+}
+.hero {
+    background: url('../images/abundant-spread-of-food-on-a-large-dining-table-photo.jpg') no-repeat center center/cover;
+    height: 100vh; /* Hero को बड़ा किया */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #333;
+    padding: 50px 20px; /* Padding बढ़ाई */
+    position: relative;
+    margin-top: 80px; /* Navbar से थोड़ा gap */
+}
+.content {
+    background: rgba(255, 255, 255, 0.9); /* हल्का Transparent background */
+    padding: 40px;
+    border-radius: 15px;
+    max-width: 700px; /* Width बढ़ाई */
+    width: 90%;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2); /* Shadow जोड़ा */
+    text-align: center;
+}
+.tag {
+    background: linear-gradient(45deg, #FFD700, #FFA500);
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+h1 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        .services span {
+    background: #ffd700;
+    padding: 8px 12px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+button.appointment {
+    background: linear-gradient(45deg, #ff8c00, #ff4500);
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.2s ease-in-out;
+}
+
+button.appointment:hover {
+    transform: scale(1.1);
+}
+
+        .appointment {
+            background: black;
+            color: white;
+            padding: 10px 15px;
+            margin-top: 15px;
+            border: none;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        @media (max-width: 768px) {
+            header {
+                display: flex;
+                justify-content: space-between;
+                padding: 10px;
+            }
+            nav {
+                display: none;
+            }
+            .hero {
+                height: auto;
+                padding: 40px 20px;
+            }
+            .content {
+                width: 100%;
+                padding: 20px;
+            }
+            .services {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+        .consultation-section {
+    background-color: #f3f3f3;
+    padding: 70px 30px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.container {
+    max-width: 700px;
+    margin: 0 auto;
+}
+h2 {
+    font-family: "Georgia", serif;
+    font-size: 36px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 15px;
+}
+p {
+    font-size: 20px;
+    color: #444;
+    line-height: 1.6;
+}/* Section Layout */
+.diet-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 60px;
+    gap: 30px;
+}
+
+/* Left Side: Image */
+.image-container {
+    position: relative;
+    width: 50%;
+    max-width: 600px;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.badge {
+    position: absolute;
+    bottom: 15px;
+    left: 15px;
+    background: #4CAF50;
+    color: white;
+    padding: 14px 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+/* Right Side: Benefits */
+.benefits {
+    width: 50%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.benefit-box {
+    background: #f0fdf4;
+    padding: 32px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12);
+}
+
+/* ⬆ Even Bigger Images ⬆ */
+.benefit-box img {
+    max-width: 120px; /* Increased size */
+    margin-bottom: 25px;
+}
+
+.benefit-box p {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* Full width for last item */
+.full-width {
+    grid-column: span 2;
+}
+
+/* Responsive Design */
+
+/* 📱 Mobile Screens */
+@media (max-width: 768px) {
+    .diet-section {
+        flex-direction: column;
+        padding: 40px;
+        text-align: center;
+    }
+    .image-container, .benefits {
+        width: 100%;
+    }
+    .benefits {
+        grid-template-columns: 1fr; /* One column layout */
+        gap: 20px;
+    }
+    .benefit-box {
+        padding: 24px;
+    }
+    /* ⬆ Bigger Images on Mobile ⬆ */
+    .benefit-box img {
+        max-width: 100px; /* Further increased */
+    }
+    .benefit-box p {
+        font-size: 18px;
+    }
+    .badge {
+        font-size: 18px;
+        padding: 12px 18px;
+    }
+}
+
+/* 🖥️ Large Screens */
+@media (min-width: 1200px) {
+    .diet-section {
+        padding: 80px;
+    }
+    .benefits {
+        gap: 35px;
+    }
+    .benefit-box {
+        padding: 40px;
+    }
+    /* ⬆ Even Bigger Images for Large Screens ⬆ */
+    .benefit-box img {
+        max-width: 150px; /* Increased size further */
+    }
+    .benefit-box p {
+        font-size: 22px;
+    }
+    .badge {
+        font-size: 24px;
+        padding: 18px 26px;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">VASUNDHARA AGRAWAL</div>
+        <nav>
+            <ul>
+                <li><a href="#">Healthy Recipes</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Plans</a></li>
+                <li><a href="#">Testimonials</a></li>
+                <li><a href="#">Blog</a></li>
+                
+            </ul>
+        </nav>
+        <a href="#" class="btn">Book a Free Meeting</a>
+    </header>
+    <section class="hero">
+        <div class="content">
+            <span class="tag">AFFORDABLE & EFFECTIVE / ONLINE-ONLY</span>
+            <h1><span>Results-oriented Nutrition Plans</span> for Busy Professionals</h1>
+            <p>Lose up to 3-6 kg per month, in a natural healthy way — <strong>Guaranteed!</strong></p>
+            <p><strong>5000+</strong> people have benefitted from our diet plans till date.</p>
+            <div class="services">
+                <span>Weight Loss / Weight Gain</span>
+                <span>Sports & Workout Nutrition</span>
+                <span>Pre / Post Pregnancy</span>
+                <span>Hypertension</span>
+                <span>Kids Nutrition</span>
+                <span>PCOD/PCOS</span>
+                <span>Diabetes Management</span>
+            </div>
+            <button class="appointment">BOOK YOUR APPOINTMENT</button>
+        </div>
+    </section>
+    <section style="background-color: #FBE7C6; padding: 80px 20px; text-align: center; position: relative;">
+        <div style="max-width: 900px; margin: auto;">
+            <h2 style="font-size: 42px; font-weight: 500; color: #333; line-height: 1.5;">
+                Lose 
+                <span style="display: inline-block; background: url('../images/pexels-janetrangdoan-1092730.jpg') no-repeat center/cover; width: 100px; height: 50px; border-radius: 10px;"></span>
+                3-4 kg per month with a diet which
+                <br>
+                <span style="color: #228B22; font-weight: 700; font-size: 48px;">is healthy and nutritious</span>
+                <span style="display: inline-block; background: url('../images/istockphoto-1134068203-612x612.jpg') no-repeat center/cover; width: 80px; height: 50px; border-radius: 10px;"></span>
+            </h2>
+            <p style="color: #444; margin-top: 25px; font-size: 20px; line-height: 1.8; font-weight: 500;">
+                Don't deprive yourself of any essential macro/micro nutrient required by your body. The deficiency of which may not be visible immediately with crash diets, but in the long term can have detrimental health consequences.
+            </p>
+            <p style="color: #444; margin-top: 25px; font-size: 20px; line-height: 1.8; font-weight: 500;">
+                Therefore, achieve weight management goals and experience a multifold increase in energy levels with diets that are healthy & nutritious. Research has shown that regular monitoring by a qualified dietician increases compliance with the diet and helps people achieve their fitness goals faster.
+            </p>
+        </div>
+    </section>
+    <section class="consultation-section">
+        <div class="container">
+            <h2>What to expect from your consultation</h2>
+            <p>Your detailed and exact-timed diet will significantly improve your overall health and well-being.</p>
+        </div>
+    </section>    
+    <section class="diet-section consultation-section">
+        <!-- Left Side: Image & Badge -->
+        <div class="image-container">
+            <img src="https://img.freepik.com/free-photo/woman-talking-her-long-distance-lover_23-2149289485.jpg" alt="Diet Consultation">
+            <div class="badge">100+ Healthy Recipes</div>
+        </div>
+    
+        <!-- Right Side: Benefits -->
+        <div class="benefits">
+            <div class="benefit-box">
+                <img src="../images/colorful-cartoon-salad-bowl-filled-fresh-vegetables-greens-ready-serving-vibrant-brimming-lettuce-tomatoes-341991877.webp" alt="Food">
+                <p>Consist Of Your Favourite Foods</p>
+            </div>
+            <div class="benefit-box">
+                <img src="../images/360_F_499361339_8s4w0FMgXIRmHJ7pa2m8rVnoCu3jYctP.jpg" alt="Schedule">
+                <p>Planned As Per Your Daily Routine / Schedule</p>
+            </div>
+            <div class="benefit-box">
+                <img src="../images/istockphoto-859300456-612x612.jpg" alt="Travel">
+                <p>Works Even While You're Travelling</p>
+            </div>
+            <div class="benefit-box">
+                <img src="../images/images.jpeg" alt="Health">
+                <p>Helps You To Achieve Your Health & Fitness Goals Efficiently</p>
+            </div>
+            <div class="benefit-box full-width">
+                <img src="../images/stock-vector-brain-power-human-organ-showing-strong-biceps-isolated-comic-character.jpeg" alt="Mind Free">
+                <p>Keeps Your Mind Free From Anxiety Of Food Planning, Eating Right And Staying Fit</p>
+            </div>
+        </div>
+    </section>
+    
+</body>
+</html>
