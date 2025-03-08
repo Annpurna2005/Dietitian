@@ -43,7 +43,8 @@
             display: inline;
         }
         nav ul li a {
-            color: white;
+            font-size: 18px;
+            color: black;
     text-decoration: none;
     font-weight: bold;
     padding: 10px 15px;
@@ -130,6 +131,9 @@ button.appointment {
 
 button.appointment:hover {
     transform: scale(1.1);
+}
+nav {
+    margin-left: auto;
 }
 
         .appointment {
@@ -307,12 +311,471 @@ p {
         padding: 18px 26px;
     }
 }
+/* Section Styling */
+.offer-section {
+    background: #FAF8F3;
+    text-align: center;
+    padding: 80px 20px; /* Padding बढ़ाई */
+}
+
+/* Headings */
+.offer-section h2 {
+    font-size: 48px; /* पहले 42px था */
+    font-family: serif;
+    margin-bottom: 50px;
+}
+
+/* Layout */
+
+.offer-container {
+    display: flex;
+    justify-content: flex-start; /* Items को left align करेगा */
+    align-items: center;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: auto;
+    gap: 40px;
+}
+
+
+
+/* Left Side - Services List */
+.offer-list {
+    flex: 1;
+    max-width: 55%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    align-self: flex-start; /* यह list को left align कर देगा */
+}
+
+
+/* Offer Item */
+.offer-item {
+    display: flex;
+    align-items: center;
+    background: white;
+    padding: 22px 28px; /* Padding बढ़ाई */
+    border-radius: 40px; /* Border radius बढ़ाई */
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.15);
+    font-size: 20px; /* पहले 18px था */
+    transition: 0.3s;
+}
+
+.offer-item:hover {
+    transform: scale(1.1);
+}
+
+.offer-item img {
+    width: 120px; /* पहले 100px था */
+    margin-right: 18px;
+}
+
+/* Right Side - Image & Badge */
+.offer-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-start; /* Image को पूरी तरह Left में भेजेगा */
+    align-items: center;
+    max-width: 600px;
+}
+.offer-image {
+    margin-left: 50px; /* और ज्यादा left में जाएगा */
+}
+
+
+.offer-image img {
+    width: 100%;
+    max-width: 550px; /* पहले 500px था */
+    border-radius: 25px;
+}
+
+.wellness-badge {
+    position: absolute;
+    bottom: 30px;
+    left: -10px;
+    background: white;
+    padding: 14px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    font-size: 20px; /* पहले 18px था */
+    box-shadow: 0px 5px 12px rgba(0, 0, 0, 0.15);
+}
+
+.wellness-badge img {
+    width: 40px; /* पहले 35px था */
+    margin-right: 14px;
+}
+
+/* Call to Action Button */
+.cta-button {
+    background: #1C3C2E;
+    color: white;
+    border: none;
+    padding: 16px 26px; /* Padding बढ़ाई */
+    border-radius: 35px;
+    font-size: 18px; /* पहले 16px था */
+    margin-top: 25px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.cta-button:hover {
+    background: #145226;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .offer-section h2 {
+        font-size: 42px; /* Medium devices के लिए */
+    }
+
+    .offer-item {
+        padding: 20px 25px;
+        font-size: 18px;
+    }
+
+    .offer-item img {
+        width: 100px;
+    }
+    .offer-image {
+        max-width: 480px; /* Medium devices के लिए */
+    }
+    .offer-image img {
+        max-width: 450px;
+    }
+}
+
+@media (max-width: 768px) {
+    .offer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+
+    .offer-list {
+        grid-template-columns: 1fr;
+        max-width: 100%;
+    }
+
+    .offer-image {
+        justify-content: center; /* Mobile में center कर देगा */
+    }
+
+    .offer-image img {
+        width: 100%;
+    max-width: 500px; /* पहले 450px था, अब बड़ा किया */
+    border-radius: 25px;
+    }
+
+    .offer-item {
+        padding: 18px 22px;
+        font-size: 16px;
+    }
+
+    .offer-item img {
+        width: 80px;
+    }
+
+    .wellness-badge {
+        font-size: 16px;
+        padding: 10px;
+    }
+
+    .wellness-badge img {
+        width: 30px;
+    }
+
+    .cta-button {
+        font-size: 16px;
+        padding: 14px 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .offer-section {
+        padding: 60px 15px;
+    }
+
+    .offer-section h2 {
+        font-size: 36px;
+    }
+
+    .offer-item {
+        padding: 16px 20px;
+        font-size: 15px;
+    }
+
+    .offer-item img {
+        width: 70px;
+    }
+
+    .cta-button {
+        font-size: 15px;
+        padding: 12px 20px;
+    }
+}
+
+/* Section Styling */
+.diet-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: #f5f5f5;
+    padding: 60px 20px; /* Padding बढ़ाई */
+}
+
+/* Computer Screen */
+.computer-screen {
+    width: 95%;
+    max-width: 1000px; /* पहले 800px था, अब बड़ा किया */
+    background: #111;
+    border-radius: 15px; /* पहले 10px था */
+    box-shadow: 0px 15px 40px rgba(0, 0, 0, 0.25); /* Shadow और गहरी की */
+    overflow: hidden;
+}
+
+/* Screen Header (Top Bar) */
+.screen-header {
+    background: #2c2c2c;
+    padding: 20px 25px; /* Padding बढ़ाई */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: white;
+    font-family: Arial, sans-serif;
+    font-size: 22px; /* पहले 18px था */
+}
+
+/* Buttons */
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.buttons span {
+    width: 16px; /* पहले 14px था */
+    height: 16px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.red { background: #ff5f57; }
+.yellow { background: #ffbd2e; }
+.green { background: #28c940; }
+
+/* Screen Content */
+.screen-content {
+    background: #222;
+    color: #fff;
+    padding: 40px; /* पहले 30px था */
+    font-family: Arial, sans-serif;
+    min-height: 500px; /* पहले 400px था */
+}
+
+.screen-content h2 {
+    text-align: center;
+    font-size: 32px; /* पहले 26px था */
+    margin-bottom: 30px; /* पहले 20px था */
+    border-bottom: 3px solid #fff;
+    display: inline-block;
+    padding-bottom: 8px;
+}
+
+/* Table Styling */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 30px; /* पहले 20px था */
+    font-size: 20px; /* पहले 16px था */
+}
+
+th, td {
+    border: 2px solid #fff; /* Border मोटा किया */
+    padding: 18px; /* पहले 12px था */
+    text-align: left;
+}
+
+th {
+    background: #4CAF50;
+    font-size: 22px; /* पहले 18px था */
+}
+
+td {
+    background: #333;
+}
+
+tr:hover td {
+    background: #444;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .computer-screen {
+        width: 100%;
+    }
+
+    th, td {
+        padding: 15px;
+        font-size: 18px;
+    }
+
+    .screen-content h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .screen-content {
+        padding: 30px;
+    }
+
+    .screen-content h2 {
+        font-size: 24px;
+    }
+
+    th, td {
+        padding: 12px;
+        font-size: 16px;
+    }
+}
+.why-it-works {
+    text-align: center;
+    padding-top: 50px;
+
+}
+
+/* Section Styling */
+/* Section Styling */
+.diet-plans {
+    background: #d4e2c5;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.diet-plans h2 {
+    font-size: 50px;
+    color: #2c3e50;
+    font-weight: bold;
+    margin-bottom: 50px;
+}
+
+/* Container */
+.diet-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 40px;
+}
+
+/* Diet Cards */
+.diet-card {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 40px;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.15);
+    padding: 35px;
+    width: 550px;
+    transition: 0.3s ease-in-out;
+}
+
+.diet-card:hover {
+    transform: scale(1.05);
+}
+
+/* Image */
+.diet-card img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 30px;
+}
+
+/* Content */
+.diet-content h3 {
+    font-size: 28px;
+    color: #2c3e50;
+    font-weight: bold;
+}
+
+.diet-content p {
+    font-size: 20px;
+    color: #666;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .diet-card {
+        width: 90%;
+    }
+    .diet-card img {
+        width: 140px;
+        height: 140px;
+    }
+}
+
+@media (max-width: 768px) {
+    .diet-container {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+
+    .diet-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 25px;
+        width: 90%;
+    }
+
+    .diet-card img {
+        width: 130px;
+        height: 130px;
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+
+    .diet-content h3 {
+        font-size: 24px;
+    }
+
+    .diet-content p {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .diet-plans h2 {
+        font-size: 40px;
+    }
+
+    .diet-card {
+        padding: 20px;
+        width: 95%;
+    }
+
+    .diet-card img {
+        width: 110px;
+        height: 110px;
+    }
+
+    .diet-content h3 {
+        font-size: 22px;
+    }
+
+    .diet-content p {
+        font-size: 16px;
+    }
+}
 
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">VASUNDHARA AGRAWAL</div>
+        <div class="logo">xyz</div>
         <nav>
             <ul>
                 <li><a href="#">Healthy Recipes</a></li>
@@ -398,6 +861,161 @@ p {
             </div>
         </div>
     </section>
-    
+    <section class="offer-section">
+    <h2>What we offer</h2>
+    <div class="offer-container">
+        <div class="offer-list">
+            <div class="offer-item">
+                <img src="../images/istockphoto-1139912908-612x612.jpg" alt="General Wellness">
+                <span>General Wellness</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/illustration-featuring-girl-meal-tray-600nw-227959000.webp" alt="Diet For Kids">
+                <span>Diet For Kids</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/istockphoto-1293501993-612x612.jpg" alt="Weight Management">
+                <span>Weight Management</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/pregnant-woman-lotus-position-yoga-cartoon-design_530689-1165.avif" alt="Pregnancy Care">
+                <span>Pregnancy Care</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/dibitice1526557396-612x612.jpg" alt="Diabetic Care">
+                <span>Diabetic Care</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/PCOS.webp" alt="PCOD / PCOS Diet">
+                <span>PCOD / PCOS Diet</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/images (1).jpeg" alt="Hypertension/Cardiac Care">
+                <span>Hypertension/Cardiac Care</span>
+            </div>
+            <div class="offer-item">
+                <img src="../images/healthy-food-concept-man-holds-260nw-610488254.webp" alt="Diets For All Medical Conditions">
+                <span>Diets For All Medical Conditions</span>
+            </div>
+        </div>
+
+        <div class="offer-image">
+            <img src="https://i.pinimg.com/736x/4e/10/00/4e1000fb30ddedacd3ff25dc0c619e8b.jpg" alt="Healthy Cooking">
+            <div class="wellness-badge">
+               
+            </div>
+          
+        </div>
+    </div>
+</section>
+<br>
+<br>
+<h1  class="why-it-works">WHY IT WORKS?</h1>
+<section class="diet-section">
+    <div class="computer-screen">
+        <div class="screen-header">
+            <div class="buttons">
+                <span class="red"></span>
+                <span class="yellow"></span>
+                <span class="green"></span>
+            </div>
+            <p>Diet Plan - Healthy Routine</p>
+        </div>
+        <div class="screen-content">
+            <h2>My Daily Diet Plan</h2>
+            <table>
+                <tr>
+                    <th>Time</th>
+                    <th>Meal</th>
+                    <th>Details</th>
+                </tr>
+                <tr>
+                    <td>6:30 AM</td>
+                    <td>Morning Drink</td>
+                    <td>Warm Lemon Water / Green Tea</td>
+                </tr>
+                <tr>
+                    <td>8:00 AM</td>
+                    <td>Breakfast</td>
+                    <td>Oats with Fruits & Nuts / Brown Bread with Peanut Butter</td>
+                </tr>
+                <tr>
+                    <td>11:00 AM</td>
+                    <td>Mid-Morning Snack</td>
+                    <td>Sprouts / Yogurt with Seeds</td>
+                </tr>
+                <tr>
+                    <td>1:30 PM</td>
+                    <td>Lunch</td>
+                    <td>Brown Rice / Chapati, Dal, Vegetables, Salad</td>
+                </tr>
+                <tr>
+                    <td>4:30 PM</td>
+                    <td>Evening Snack</td>
+                    <td>Green Tea & Nuts / Fruit Smoothie</td>
+                </tr>
+                <tr>
+                    <td>7:30 PM</td>
+                    <td>Dinner</td>
+                    <td>Grilled Chicken / Fish with Salad / Light Soup</td>
+                </tr>
+                <tr>
+                    <td>9:00 PM</td>
+                    <td>Bedtime Drink</td>
+                    <td>Warm Milk with Turmeric</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</section>
+
+<section class="diet-plans">
+    <h2>Healthy Food Options</h2>
+    <div class="diet-container">
+        <div class="diet-card">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB3vS4jQK-zhInjjm3qMK3y5QfP3YR10nqag&s" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+        <div class="diet-card">
+            <img src="../images/photo0jpg.jpg" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+        <div class="diet-card">
+            <img src="../images/fruit-yogurt-acai-bowl-1024x683.jpeg" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+        <div class="diet-card">
+            <img src="../images/a-bowl-of-healthy-food.jpg" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+        <div class="diet-card">
+            <img src="../images/How-Consumer-Demand-for-Healthy-Food-Options-is-Fueling-Change-Protis-Global-Blog-July-2023.webp" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+        <div class="diet-card">
+            <img src="../images/images (2).jpeg" alt="Food Image">
+            <div class="diet-content">
+                <h3>Healthy Food Options</h3>
+                <p>Every Diet is designed keeping your food preferences in mind</p>
+            </div>
+        </div>
+    </div>
+</section>
+
 </body>
 </html>
