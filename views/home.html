@@ -770,7 +770,57 @@ tr:hover td {
         font-size: 16px;
     }
 }
-
+.faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+            color: #2c3e50;
+            font-size: 32px;
+        }
+        .faq {
+            margin-bottom: 15px;
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: background 0.3s;
+        }
+        .faq:hover {
+            background: #f1f1f1;
+        }
+        .faq:last-child {
+            border-bottom: none;
+        }
+        .question {
+            font-weight: bold;
+            color: #3498db;
+            font-size: 22px;
+        }
+        .answer {
+            color: #444;
+            margin-top: 5px;
+            font-size: 20px;
+            display: none;
+            padding: 10px;
+            background: #f9f9f9;
+            border-left: 4px solid #3498db;
+            border-radius: 5px;
+        }
+        .arrow {
+            font-size: 22px;
+            transition: transform 0.3s;
+        }
+        .faq.active .arrow {
+            transform: rotate(90deg);
+        }
     </style>
 </head>
 <body>
@@ -1017,5 +1067,54 @@ tr:hover td {
     </div>
 </section>
 
+<div class="faq-container">
+    <h2>Frequently Asked Questions</h2>
+    
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q1: Do I need to book an appointment for a diet plan?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, you can book an appointment online through our website.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q2: Do you offer virtual consultations?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, we provide online diet consultations via video call.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q3: Are the diet plans personalized?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, we create customized diet plans based on your health, weight, lifestyle, and goals.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q4: What is the best diet plan for weight loss?</div><span class="arrow">▶</span></div>
+    <div class="answer">It depends on your body type, metabolism, and lifestyle. We focus on balanced nutrition and healthy eating habits.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q5: Do you provide vegan or vegetarian diet plans?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, we offer vegan, vegetarian, keto, paleo, and other specialized diet plans.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q6: Do you offer diet plans for diabetes or high blood pressure?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, we create balanced diet plans keeping medical conditions in mind.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q7: Is there a free trial for diet plans?</div><span class="arrow">▶</span></div>
+    <div class="answer">We offer a free consultation call, but a customized diet plan requires payment.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q8: How can I make a payment?</div><span class="arrow">▶</span></div>
+    <div class="answer">You can pay online using debit/credit cards and UPI.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q9: Can I modify my diet plan later?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, you can contact us to make necessary adjustments to your plan.</div>
+
+    <div class="faq" onclick="toggleAnswer(this)"><div class="question">Q10: Will I get support while following the diet plan?</div><span class="arrow">▶</span></div>
+    <div class="answer">Yes, our experts provide regular follow-ups and support.</div>
+
+    <p style="text-align: center; margin-top: 20px; font-size: 18px; font-weight: bold;">And many more...</p>
+</div>
+
+<script>
+    function toggleAnswer(faq) {
+        var answer = faq.nextElementSibling;
+        var arrow = faq.querySelector(".arrow");
+        var isActive = faq.classList.contains("active");
+        document.querySelectorAll(".faq").forEach(f => f.classList.remove("active"));
+        document.querySelectorAll(".answer").forEach(a => a.style.display = "none");
+        if (!isActive) {
+            faq.classList.add("active");
+            answer.style.display = "block";
+        }
+    }
+</script>
 </body>
 </html>
