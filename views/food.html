@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <title>Healthy Diet Recipes</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f8f9fa;
+            padding: 20px;
+            margin: 0;
+            text-align: center;
+        }
+        h1 {
+            color: #28a745;
+            font-size: 3em;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+        .search-container {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+        .search-box {
+            padding: 12px;
+            width: 50%;
+            font-size: 1.2em;
+            border: 2px solid #28a745;
+            border-radius: 8px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .search-box:focus {
+            outline: none;
+            border-color: #1e7e34;
+            box-shadow: 0px 0px 8px rgba(40, 167, 69, 0.5);
+        }
+        .recipes {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+        }
+        .recipe {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: white;
+            border-radius: 10px;
+            padding: 15px;
+            width: 90%;
+            max-width: 600px;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .recipe:hover {
+            transform: scale(1.02);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+        .recipe h3 {
+            font-size: 1.6em;
+            color: #333;
+            margin: 0;
+            flex-grow: 1;
+            text-align: left;
+        }
+        .recipe img {
+            width: 120px;
+            height: 120px;
+            border-radius: 10px;
+            object-fit: cover;
+            margin-left: 20px;
+        }
+        .recipe-details {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            width: 90%;
+            max-width: 500px;
+            text-align: left;
+        }
+        .recipe-details h2 {
+            color: #28a745;
+            font-size: 2em;
+        }
+        .recipe-details p {
+            white-space: pre-line;
+            font-size: 1.3em;
+            color: #555;
+        }
+        .close {
+            cursor: pointer;
+            font-size: 28px;
+            color: red;
+            float: right;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .search-box {
+                width: 90%;
+            }
+            .recipe {
+                flex-direction: column;
+                text-align: center;
+                padding: 15px;
+            }
+            .recipe img {
+                margin: 10px 0 0 0;
+                width: 100px;
+                height: 100px;
+            }
+            .recipe h3 {
+                font-size: 1.4em;
+            }
+            .recipe-details {
+                width: 95%;
+                padding: 20px;
+            }
+        }
+        .footer {
+            /* background-color: #3c6e41; */
+            background-color: #2c3e50;
+            color: white;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Top section of footer */
+        .footer-top {
+            display: flex;
+            flex-wrap: wrap;
+            padding: 40px 5%;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Left column */
+        .footer-left {
+            flex: 1;
+            min-width: 300px;
+            margin-bottom: 30px;
+        }
+
+        .footer-logo {
+            margin-bottom: 20px;
+        }
+
+       
+.footer-logo  span {
+    font-size: 50px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+}
+        .footer-logo p {
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            border-top: 1px solid rgba(255, 255, 255, 0.3);
+            padding-top: 5px;
+            width: fit-content;
+        }
+
+        .footer-text {
+            max-width: 300px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icon {
+            width: 40px;
+            height: 40px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .social-icon:hover {
+            transform: translateY(-3px);
+        }
+
+        .social-icon i {
+            color: #2c3e50;
+            font-size: 18px;
+        }
+
+        /* Right column - Navigation */
+        .footer-nav {
+            flex: 1;
+            display: flex;
+            flex-wrap: wrap;
+            min-width: 300px;
+        }
+
+        .nav-column {
+            flex: 1;
+            min-width: 150px;
+            margin-bottom: 20px;
+            font-size: 20Spx;
+        }
+
+        .nav-column a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-column a:hover {
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Bottom section with PNG images */
+        .footer-bottom {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .footer-images {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            /* height: 100%; */
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-image {
+            /* height: 100%;
+            width: 50%; */
+            object-fit: cover;
+        }
+
+        .watermark {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 150px;
+            font-weight: bold;
+            color: rgba(255, 255, 255, 0.1);
+            z-index: 1;
+            letter-spacing: 10px;
+        }
+
+        .book-meeting {
+            position: absolute;
+            right: 20px;
+            bottom: 50px;
+            background-color: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            z-index: 3;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+
+        .book-meeting:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+        /* Footer copyright */
+        .footer-copyright {
+            background-color: rgba(0, 0, 0, 0.2);
+            padding: 15px;
+            text-align: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .footer-copyright a {
+            color: white;
+            text-decoration: none;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .footer-top {
+                flex-direction: column;
+            }
+
+            .footer-left, .footer-nav {
+                width: 100%;
+            }
+
+            .nav-column {
+                min-width: 120px;
+            }
+
+            .footer-bottom {
+                height: 150px;
+            }
+
+            .watermark {
+                font-size: 80px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer-bottom {
+                height: 120px;
+            }
+
+            .watermark {
+                font-size: 50px;
+            }
+
+            .book-meeting {
+                right: 10px;
+                bottom: 40px;
+                padding: 8px 15px;
+                font-size: 12px;
+            }
+        }
+    
+    </style>
+</head>
+<body>
+    <h1>H2O Healthy Diet Recipes</h1>
+    <div class="search-container">
+        <input type="text" id="search" class="search-box" placeholder="Search Recipes..." onkeyup="searchRecipe()">
+    </div>
+    
+    <div class="recipes" id="recipeList"></div>
+    
+    <div id="recipeDetails" class="recipe-details">
+        <span class="close" onclick="closeDetails()">&times;</span>
+        <h2 id="recipeTitle"></h2>
+        <p id="recipeInstructions"></p>
+    </div>
+    
+    <script>
+      const recipes = [
+    { name: "Oatmeal Bowl", img: "../images/otemeal.jpg", recipe: "1. Mix oats with milk.\n2. Add fruits and nuts.\n3. Serve chilled." },
+    { name: "Avocado Toast", img: "../images/avacado.jpg", recipe: "1. Toast bread.\n2. Mash avocado.\n3. Spread avocado and season with salt." },
+    { name: "Green Smoothie", img: "../images/greensmothie.jpeg", recipe: "1. Blend banana, spinach, and milk.\n2. Add honey for sweetness.\n3. Serve chilled." },
+    { name: "Grilled Chicken Salad", img: "../images/grilled-chicken-salad-hero.jpg", recipe: "1. Grill chicken.\n2. Mix with greens and nuts.\n3. Add dressing and serve." },
+    { name: "Chia Pudding", img: "../images/chia-seeds.jpg", recipe: "1. Mix chia seeds and milk.\n2. Let it sit overnight.\n3. Add fruits before serving." },
+    { name: "Quinoa Salad", img: "../images/Qunioa.jpeg", recipe: "1. Cook quinoa.\n2. Mix with veggies.\n3. Add dressing and serve cold." },
+    { name: "Peanut Butter Banana Toast", img: "../images/peanut-butter-banana-toast-1-1.jpg", recipe: "1. Toast bread.\n2. Spread peanut butter.\n3. Add banana slices and serve." },
+    { name: "Greek Yogurt Parfait", img: "../images/Greek-Yogurt-Parfait-Recipe.jpg", recipe: "1. Layer yogurt with granola and fruits.\n2. Drizzle honey on top.\n3. Serve chilled." },
+    { name: "Fruit Salad", img: "../images/Fruit-salad-recipe-3.jpg", recipe: "1. Chop assorted fruits.\n2. Mix together.\n3. Add lemon juice and serve." },
+    { name: "Vegetable Stir Fry", img: "../images/Vegetable-Stir-Fry-2.jpg", recipe: "1. Heat oil in a pan.\n2. Stir-fry mixed vegetables.\n3. Add soy sauce and serve." },
+    { name: "Boiled Eggs", img: "../images/eggs.jpg", recipe: "1. Boil eggs for 10 minutes.\n2. Peel and season with salt and pepper.\n3. Serve warm or cold." },
+    { name: "Cucumber Detox Water", img: "../images/cucumber_water.webp", recipe: "1. Slice cucumber and lemon.\n2. Add to a jug of water.\n3. Let it infuse for 1 hour and serve." },
+    { name: "Protein Pancakes", img: "../images/Protein-Pancakes.webp", recipe: "1. Mix oats, banana, and eggs.\n2. Cook on a non-stick pan.\n3. Serve with honey." },
+    { name: "Hummus with Veggies", img: "../images/Homemade-Hummus-with-Veggie-Sticks.jpg", recipe: "1. Blend chickpeas, tahini, lemon, and garlic.\n2. Serve with sliced veggies.\n3. Enjoy fresh." },
+    { name: "Brown Rice & Lentils", img: "../images/brown-rice-and-lentils-recipe-FEATURED.jpg", recipe: "1. Cook brown rice and lentils.\n2. Mix with herbs and spices.\n3. Serve warm." },
+    { name: "Spinach Omelette", img: "../images/baby-spinach-omelet-.jpg", recipe: "1. Whisk eggs and spinach.\n2. Cook in a pan.\n3. Serve hot with toast." },
+    { name: "Sweet Potato Fries", img: "../images/sweet-potato-fries-5.webp", recipe: "1. Cut sweet potatoes into fries.\n2. Bake until crispy.\n3. Serve with dip." },
+    { name: "Zucchini Noodles", img: "../images/pesto.jpeg", recipe: "1. Spiralize zucchini.\n2. Sauté with garlic and olive oil.\n3. Serve as a pasta alternative." },
+    { name: "Coconut Chia Shake", img: "../images/cocnutchia.jpeg", recipe: "1. Blend coconut milk, banana, and chia seeds.\n2. Chill before serving.\n3. Enjoy refreshing drink." },
+    { name: "Berry Smoothie Bowl", img: "../images/bowl.jpeg", recipe: "1. Blend mixed berries and yogurt.\n2. Pour into a bowl.\n3. Top with granola and nuts." }
+];
+
+        
+        function displayRecipes() {
+            const recipeList = document.getElementById('recipeList');
+            recipeList.innerHTML = '';
+            recipes.forEach((recipe, index) => {
+                let recipeBox = document.createElement('div');
+                recipeBox.classList.add('recipe');
+                recipeBox.innerHTML = `<h3>${recipe.name}</h3> <img src="${recipe.img}" alt="${recipe.name}">`;
+                recipeBox.onclick = () => showDetails(index);
+                recipeList.appendChild(recipeBox);
+            });
+        }
+        
+        function showDetails(index) {
+            document.getElementById('recipeTitle').innerText = recipes[index].name;
+            document.getElementById('recipeInstructions').innerText = recipes[index].recipe;
+            document.getElementById('recipeDetails').style.display = 'block';
+        }
+        
+        function closeDetails() {
+            document.getElementById('recipeDetails').style.display = 'none';
+        }
+        
+        function searchRecipe() {
+    let input = document.getElementById('search').value.toLowerCase();
+    const filteredRecipes = recipes.filter(recipe => recipe.name.toLowerCase().includes(input));
+    const recipeList = document.getElementById('recipeList');
+    recipeList.innerHTML = '';
+
+    if (filteredRecipes.length === 0) {
+        recipeList.innerHTML = `<h2 style="color: red;">Not Found 😢</h2>`;
+        return;
+    }
+
+    filteredRecipes.forEach((recipe, index) => {
+        let recipeBox = document.createElement('div');
+        recipeBox.classList.add('recipe');
+        recipeBox.innerHTML = `<h3>${recipe.name}</h3> <img src="${recipe.img}" alt="${recipe.name}">`;
+        recipeBox.onclick = () => showDetails(recipes.indexOf(recipe));
+        recipeList.appendChild(recipeBox);
+    });
+}
+
+        
+        displayRecipes();
+    </script>
+    
+<footer class="footer">
+    <div class="footer-top">
+        <!-- Left column with logo and info -->
+        <div class="footer-left">
+            <div class="footer-logo">
+                
+                <span>xyz</span>
+                <p>DIET & LIFESTYLE CONSULTANT</p>
+            </div>
+            <div class="footer-text">
+                100% of consultations are directly with Nutritionist Vasundhara who has assisted 3000+ people in their journey to #livehealthy
+            </div>
+            <div class="social-icons">
+                <a href="#" class="social-icon">
+                    <i class="fab fa-twitter"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-linkedin-in"></i>
+                </a>
+                <a href="#" class="social-icon">
+                    <i class="fab fa-facebook-f"></i>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Right column with navigation -->
+        <div class="footer-nav">
+            <div class="nav-column">
+                <a href="#">HEALTHY RECIPES</a>
+                <a href="#">ABOUT</a>
+                <a href="#">CORPORATE WELLNESS</a>
+                <a href="#">PLANS</a>
+            </div>
+            <div class="nav-column">
+                <a href="#">TESTIMONIALS</a>
+                <a href="#">BLOGS</a>
+                <a href="#">FAQS</a>
+                <a href="#">CONTACT</a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Bottom section with 2 PNG images -->
+    <div class="footer-bottom">
+        <div class="watermark">xxxyyyzzz</div>
+        <div class="footer-images">
+            <!-- Replace these placeholder images with your actual PNG files -->
+            <img src="/images/y.png" alt="Yoga and Fitness" width="200" height="200" class="footer-image">
+            <img src="/images/run.png" alt="Healthy Food" width="200" height="200" class="footer-image">
+        </div>
+        <!-- <button class="book-meeting">BOOK YOUR FREE MEETING</button> -->
+    </div>
+    
+    <!-- Copyright section -->
+    <div class="footer-copyright">
+        Our Policies & Terms of Service | Site designed by <a href="#">DevKIRTI</a>
+    </div>
+</footer>
+
+<script>
+    function toggleAnswer(faq) {
+        var answer = faq.nextElementSibling;
+        var arrow = faq.querySelector(".arrow");
+        var isActive = faq.classList.contains("active");
+        document.querySelectorAll(".faq").forEach(f => f.classList.remove("active"));
+        document.querySelectorAll(".answer").forEach(a => a.style.display = "none");
+        if (!isActive) {
+            faq.classList.add("active");
+            answer.style.display = "block";
+        }
+    }
+    document.querySelector('.book-meeting').addEventListener('click', function() {
+            alert('Booking functionality would go here!');
+        });
+
+        // Function to handle image loading errors
+        function handleImageError(img) {
+            // Create a canvas element as a fallback
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            
+            // Set canvas dimensions
+            canvas.width = img.width || 400;
+            canvas.height = img.height || 200;
+            
+            // Draw a gradient background
+            const gradient = ctx.createLinearGradient(0, 0, canvas.width, 0);
+            gradient.addColorStop(0, '#2c5331');
+            gradient.addColorStop(1, '#3c6e41');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+            
+            // Add text to indicate this is a placeholder
+            ctx.font = '20px Arial';
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.7)';
+            ctx.textAlign = 'center';
+            ctx.fillText('Image Placeholder', canvas.width / 2, canvas.height / 2);
+            
+            // Replace the image source with the canvas data URL
+            img.src = canvas.toDataURL();
+        }
+        
+        // Add error handlers to images
+        document.querySelectorAll('.footer-image').forEach(img => {
+            img.onerror = function() {
+                handleImageError(this);
+            };
+        });
+        
+</script>
+</body>
+</html>
