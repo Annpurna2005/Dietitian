@@ -13,6 +13,10 @@
             padding: 0;
             background-color: #f4f4f4;
         }
+        html {
+    scroll-behavior: smooth;
+}
+
         header {
     display: flex;
     justify-content: space-between;
@@ -1046,7 +1050,91 @@ tr:hover td {
                 font-size: 12px;
             }
         }
-    
+        * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Poppins', sans-serif;
+}
+
+.testimonial-section {
+    width: 100%;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #f9f7f1, #ece7dc);
+    text-align: center;
+}
+
+
+.slider-container {
+    width: 85%;
+    max-width: 900px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    border-radius: 12px;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    padding: 30px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 250px;
+    border: 1px solid #ddd;
+}
+
+.stars {
+    color: #f4b400;
+    margin: 8px 0;
+    font-size: 20px;
+}
+
+.author {
+    font-weight: bold;
+    margin-top: 15px;
+    font-size: 16px;
+    color: #444;
+}
+
+.profile-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin-top: 15px;
+    border: 3px solid #f4b400;
+}
+.testimonial-section h2 {
+    margin-bottom: 40px;
+    font-size: 36px;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #333;
+    letter-spacing: 1.5px;
+    position: relative;
+    display: inline-block;
+}
+
+.testimonial-section h2::after {
+    content: "";
+    width: 80px;
+    height: 4px;
+    background: #f4b400;
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 2px;
+}
+
     </style>
 </head>
 <body>
@@ -1057,7 +1145,7 @@ tr:hover td {
                 <li><a href="food.html">Healthy Recipes</a></li>
                 <li><a href="#">About</a></li>
                 <li><a href="#">Plans</a></li>
-                <li><a href="#">Testimonials</a></li>
+                <li><a href="#testimonial-section">Testimonials</a></li>
                 <li><a href="#">Blog</a></li>
                 
             </ul>
@@ -1293,6 +1381,98 @@ tr:hover td {
     </div>
 </section>
 
+<section class="testimonial-section" id="testimonial-section">
+    <h2>What Our Clients Say</h2>
+    <div class="slider-container">
+        <div class="slider" id="testimonialSlider">
+            <div class="slide">
+                <p>"The service was excellent, I am very happy!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile1.jpg" alt="Aarav Sharma" class="profile-img">
+                <div class="author">- Aarav Sharma</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Had a truly amazing experience!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile2.jpg" alt="Neha Verma" class="profile-img">
+                <div class="author">- Neha Verma</div>
+            </div>
+            
+            <div class="slide">
+                <p>"The service exceeded my expectations!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile3.jpg" alt="Kavita Iyer" class="profile-img">
+                <div class="author">- Kavita Iyer</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Very professional and efficient team!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile4.jpg" alt="Vivek Mishra" class="profile-img">
+                <div class="author">- Vivek Mishra</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Timely delivery and great quality!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile5.jpg" alt="Anuj Gupta" class="profile-img">
+                <div class="author">- Anuj Gupta</div>
+            </div>
+            
+            <div class="slide">
+                <p>"I would highly recommend them!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile6.jpg" alt="Sanjana Pandey" class="profile-img">
+                <div class="author">- Sanjana Pandey</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Fantastic support and excellent work!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile7.jpg" alt="Rajesh Nair" class="profile-img">
+                <div class="author">- Rajesh Nair</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Everything was perfect, great job!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile8.jpg" alt="Payal Choudhary" class="profile-img">
+                <div class="author">- Payal Choudhary</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Quality, timing, and support – all were top-notch!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile9.jpg" alt="Dev Agarwal" class="profile-img">
+                <div class="author">- Dev Agarwal</div>
+            </div>
+            
+            <div class="slide">
+                <p>"Reliable and professional team!"</p>
+                <div class="stars">★★★★★</div>
+                <img src="profile10.jpg" alt="Saumya Mehta" class="profile-img">
+                <div class="author">- Saumya Mehta</div>
+            </div>            
+        </div>
+    </div>
+</section>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        let currentIndex = 0;
+        const slider = document.getElementById("testimonialSlider");
+        const slides = document.querySelectorAll(".slide");
+        const totalSlides = slides.length;
+        
+        function slideTestimonials() {
+            currentIndex = (currentIndex + 1) % totalSlides;
+            slider.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        
+        setInterval(slideTestimonials, 3000);
+    });
+</script>
+
 <div class="faq-container">
     <h2>Frequently Asked Questions</h2>
     
@@ -1328,6 +1508,7 @@ tr:hover td {
 
     <p style="text-align: center; margin-top: 20px; font-size: 18px; font-weight: bold;">And many more...</p>
 </div>
+
 
 <footer class="footer">
     <div class="footer-top">
