@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Healthy Food Blog</title>
+    <style>
+ * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            background: linear-gradient(135deg, #11998e, #38ef7d); 
+            text-align: center;
+            color: #fff;
+        }
+        h1 {
+            margin: 20px 0;
+            color: #ffeb3b;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+        }
+        .gallery {
+            column-count: 3;
+            column-gap: 15px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: auto;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .gallery-item {
+            display: inline-block;
+            width: 100%;
+            margin-bottom: 15px;
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.3s ease-in-out;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        .caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffeb3b;
+            padding: 10px;
+            text-align: center;
+            font-size: 14px;
+            font-weight: bold;
+        }
+        @media (max-width: 768px) {
+            .gallery {
+                column-count: 2;
+            }
+        }
+        @media (max-width: 480px) {
+            .gallery {
+                column-count: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Healthy Food Blog</h1>
+    <div class="gallery">
+        <div class="gallery-item">
+            <img src="../images/overnight-oats-1.jpg" alt="Oatmeal">
+            <div class="caption">Nutritious Oatmeal Bowl</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/Indian-Seasonal-Fruits.jpg" alt="Fruits">
+            <div class="caption">Seasonal Fresh Fruits</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/avacado.jpeg" alt="Avocado">
+            <div class="caption">Avocado Toast</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/bowl.jpeg" alt="Smoothie">
+            <div class="caption">Healthy Fruit Smoothie</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/Vegetable-Stir-Fry-2.jpg" alt="Vegetables">
+            <div class="caption">Fresh Organic Vegetables</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/How-Consumer-Demand-for-Healthy-Food-Options-is-Fueling-Change-Protis-Global-Blog-July-2023.webp" alt="Salad">
+            <div class="caption">Fresh Green Salad</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/TYPES_OF_NUTS_AND_SEEDS_AND_THEIR_HEALTH_BENEFITS_4960x.jpeg" alt="Nuts">
+            <div class="caption">Healthy Nuts and Seeds</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/fruit-yogurt-acai-bowl-1024x683.jpeg" alt="Yogurt">
+            <div class="caption">Greek Yogurt with Berries</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/honeywebp.webp" alt="Honey">
+            <div class="caption">Organic Honey</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/green-tea.avif" alt="Green Tea">
+            <div class="caption">Refreshing Green Tea</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/Qunioa.jpeg" alt="Quinoa">
+            <div class="caption">Protein-Packed Quinoa</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/darkcocolate.jpg" alt="Dark Chocolate">
+            <div class="caption">Antioxidant-Rich Dark Chocolate</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/chia-seeds.jpg" alt="Chia Seeds">
+            <div class="caption">Chia Seeds Superfood</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/cocnutchia.jpeg" alt="Almond Milk">
+            <div class="caption">Homemade Almond Milk</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/rice.jpg" alt="Lentils">
+            <div class="caption">Protein-Rich Lentils</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/732x549_THUMBNAIL_Brown_Rice_vs._White_Rice.avif" alt="Brown Rice">
+            <div class="caption">Fiber-Rich Brown Rice</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/barreyswebp.webp" alt="Berries">
+            <div class="caption">Antioxidant-Rich Berries</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/healthy-foods.jpg" alt="Spinach">
+            <div class="caption">Iron-Packed Spinach</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/salmon_fish_on_a_cutting_board.jpg" alt="Fish">
+            <div class="caption">Omega-3 Rich Salmon</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/iStock-481114390.jpg" alt="Walnuts">
+            <div class="caption">Brain-Boosting Walnuts</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/beetroot.jpg" alt="Beetroot">
+            <div class="caption">Heart-Healthy Beetroot</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/Image-Content-flax.png" alt="Flaxseeds">
+            <div class="caption">Omega-3 Rich Flaxseeds</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/mashroom_.jpg" alt="Mushroom">
+            <div class="caption">Vitamin D-Rich Mushrooms</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/papaya-benefit.avif" alt="Papaya">
+            <div class="caption">Digestive-Friendly Papaya</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/DriedPomegranatePowder.webp" alt="Pomegranate">
+            <div class="caption">Immunity-Boosting Pomegranate</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/carrat.jpg" alt="Carrots">
+            <div class="caption">Vision-Enhancing Carrots</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/chickpeas_closeup_1296x728_header-1024x575.webp" alt="Chickpeas">
+            <div class="caption">Protein-Packed Chickpeas</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/fresh-ripe-watermelon-slices-on-wooden-table-royalty-free-image-1684966820.avif" alt="Watermelon">
+            <div class="caption">Hydrating Watermelon</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/turmeric.jpg" alt="Turmeric">
+            <div class="caption">Anti-Inflammatory Turmeric</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/cucumber_1.webp" alt="Cucumber">
+            <div class="caption">Cooling Cucumber</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/peanut-butter-banana-toast-1-1.jpg" alt="Peanut Butter">
+            <div class="caption">Protein-Rich Peanut Butter</div>
+        </div>
+        <div class="gallery-item">
+            <img src="../images/grapes.jpeg" alt="Grapes">
+            <div class="caption">Antioxidant-Packed Grapes</div>
+        </div>
+    
+    </div>
+    
+</body>
+</html>
