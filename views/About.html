@@ -7,12 +7,12 @@
     <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <style>
-        header {
+    header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 15px 50px;
-    background: linear-gradient(45deg, #146c43, #0f5132);
+    background: rgba(20, 108, 67, 0.2); /* पहले से ही transparent */
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
     position: fixed;
@@ -20,12 +20,17 @@
     top: 0;
     left: 0;
     z-index: 1000;
+    transition: background 0.3s ease-in-out;
+}
+
+header:hover {
+    background: rgba(20, 108, 67, 0.4); /* Hover करने पर और transparent */
 }
 
 .logo {
     font-size: 28px;
     font-weight: bold;
-    color: white;
+    color: black;
     text-transform: uppercase;
     letter-spacing: 2px;
 }
@@ -40,34 +45,18 @@ nav ul {
 
 nav ul li a {
     font-size: 20px;
-    color: white;
+    color: black;
     text-decoration: none;
     font-weight: bold;
     padding: 14px 20px;
     border-radius: 25px;
     transition: all 0.3s ease-in-out;
-    position: relative;
-}
-
-nav ul li a::before {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 4px;
-    background: #FFD700;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    transition: 0.3s ease-in-out;
-}
-
-nav ul li a:hover::before {
-    width: 100%;
+    background: rgba(255, 255, 255, 0.1); /* हल्का transparent */
 }
 
 nav ul li a:hover {
-    color: #FFD700;
-    transform: scale(1.1);
+    background: rgba(255, 255, 255, 0.3); /* Hover करने पर ज्यादा transparent */
+    color: black;
 }
 
 /* Mobile Responsive */
@@ -94,15 +83,16 @@ nav ul li a:hover {
     }
 }
 
-        body {
+
+body {
             font-family: 'Poppins', sans-serif;
             background: linear-gradient(to right, #d4fc79, #96e6a1);
             display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
-            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding-top: 100px;
         }
         .about-section {
             background: white;
@@ -111,7 +101,8 @@ nav ul li a:hover {
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
             max-width: 1100px;
             text-align: center;
-            width: 100%;
+            width: 90%;
+            margin-bottom: 50px;
         }
         .about-section h2 {
             font-size: 42px;
@@ -159,7 +150,7 @@ nav ul li a:hover {
             color: #f4a261;
         }
         .text p {
-            font-size: 22px;
+            font-size: 20px;
             line-height: 1.8;
             color: #444;
         }
@@ -199,6 +190,66 @@ nav ul li a:hover {
             background-color: #0f5132;
             transform: scale(1.07);
         }
+        .wellness-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem;
+            background-color: #f8f9fa;
+            width: 100%;
+        }
+
+        .wellness-content {
+            flex: 1;
+            padding-right: 2rem;
+        }
+
+        .wellness-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            max-width: 800px;
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        .wellness-card p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+        }
+
+        .wellness-image {
+            flex: 1;
+            text-align: right;
+        }
+
+        .wellness-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        /* Responsive styles */
+        @media (max-width: 768px) {
+            .wellness-section {
+                flex-direction: column;
+                padding: 2rem;
+            }
+
+            .wellness-content {
+                padding-right: 0;
+                margin-bottom: 2rem;
+            }
+
+            .wellness-card {
+                max-width: 100%;
+            }
+        }
     </style>
 </head>
 <body>
@@ -217,6 +268,7 @@ nav ul li a:hover {
         </nav>
        <a href=""></a>
     </header>
+    
     <section class="about-section">
         <h2><i class="fas fa-leaf"></i> About the Nutritionist</h2>
         <div class="content">
@@ -243,6 +295,17 @@ nav ul li a:hover {
             </div>
         </div>
         <button class="book-meeting"><i class="fas fa-calendar-alt"></i> BOOK YOUR FREE MEETING</button>
+    </section>
+    
+        <section class="wellness-section">
+        <div class="wellness-content">
+            <div class="wellness-card">
+                <p>She works with diverse groups and individuals around the World, catering to their special needs, goals or health conditions and helping them lead a healthy life free of worry and illness. With her there is always something for everyone. Therefore, it doesn't matter who you are, where you live, or what you do, she can pave way for a healthier and happier you.</p>
+            </div>
+        </div>
+        <div class="wellness-image">
+            <img src="https://images.unsplash.com/photo-1622485482811-2ede1a5afd9e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Woman preparing a healthy smoothie with fruits and vegetables">
+        </div>
     </section>
 </body>
 </html>
