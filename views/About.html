@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About the Nutritionist</title>
+    <script src="https://kit.fontawesome.com/your-fontawesome-kit.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 50px;
+    background: linear-gradient(45deg, #146c43, #0f5132);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
+}
+
+nav ul li a {
+    font-size: 20px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 14px 20px;
+    border-radius: 25px;
+    transition: all 0.3s ease-in-out;
+    position: relative;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 4px;
+    background: #FFD700;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    transition: 0.3s ease-in-out;
+}
+
+nav ul li a:hover::before {
+    width: 100%;
+}
+
+nav ul li a:hover {
+    color: #FFD700;
+    transform: scale(1.1);
+}
+
+/* Mobile Responsive */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        padding: 15px;
+        text-align: center;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        gap: 15px;
+        margin-top: 10px;
+    }
+
+    .logo {
+        font-size: 24px;
+    }
+
+    nav ul li a {
+        font-size: 18px;
+        padding: 10px 15px;
+    }
+}
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(to right, #d4fc79, #96e6a1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+            padding: 20px;
+        }
+        .about-section {
+            background: white;
+            padding: 60px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            max-width: 1100px;
+            text-align: center;
+            width: 100%;
+        }
+        .about-section h2 {
+            font-size: 42px;
+            font-weight: bold;
+            color: #333;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .about-section h2 i {
+            color: #146c43;
+        }
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 40px;
+        }
+        @media (min-width: 768px) {
+            .content {
+                flex-direction: row;
+                text-align: left;
+            }
+        }
+        .image img {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            border: 8px solid #146c43;
+        }
+        .text {
+            flex: 1;
+        }
+        .text h3 {
+            font-size: 34px;
+            font-weight: bold;
+            color: #146c43;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .text h3 i {
+            color: #f4a261;
+        }
+        .text p {
+            font-size: 22px;
+            line-height: 1.8;
+            color: #444;
+        }
+        .social-icons {
+            margin-top: 20px;
+        }
+        .social-icons a {
+            margin: 0 12px;
+            font-size: 32px;
+            color: #146c43;
+            transition: 0.3s;
+        }
+        .social-icons a:hover {
+            color: #0f5132;
+            transform: scale(1.1);
+        }
+        .book-meeting {
+            background-color: #146c43;
+            color: white;
+            padding: 18px 36px;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            font-size: 22px;
+            font-weight: bold;
+            margin-top: 30px;
+            transition: 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+        }
+        .book-meeting i {
+            color: #f4a261;
+        }
+        .book-meeting:hover {
+            background-color: #0f5132;
+            transform: scale(1.07);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><a href="home.html">xyz</a></div>
+        <nav>
+            <ul>
+                <li><a href="home.html">Home</a></li>
+                <li><a href="food.html">Healthy Recipes</a></li>
+                <li><a href="About.html">About</a></li>
+                <li><a href="#">Plans</a></li>
+             
+                <li><a href="#">Blog</a></li>
+                
+            </ul>
+        </nav>
+       <a href=""></a>
+    </header>
+    <section class="about-section">
+        <h2><i class="fas fa-leaf"></i> About the Nutritionist</h2>
+        <div class="content">
+            <div class="image">
+                <img src="https://www.shutterstock.com/image-photo/profile-photo-attractive-family-doc-600nw-1724693776.jpg" alt="Nutritionist">
+            </div>
+            <div class="text">
+                <h3><i class="fas fa-user-md"></i> Vasundhara Agrawal</h3>
+                <p>
+                    A Bangalore-based diet & active lifestyle expert and an independent food consultant 
+                    who strives to take the confusion out of healthy eating. Having worked with top hospitals, 
+                    she believes in tailor-made diet plans for individuals.
+                </p>
+                <p>
+                    A life member of the Indian Dietetic Association, a UGC-NET qualified lecturer, 
+                    and a corporate trainer, Vasundhara’s mission is to inculcate healthy lifestyle habits among people.
+                </p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                </div>
+            </div>
+        </div>
+        <button class="book-meeting"><i class="fas fa-calendar-alt"></i> BOOK YOUR FREE MEETING</button>
+    </section>
+</body>
+</html>
