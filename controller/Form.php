@@ -1,5 +1,5 @@
 <?php
-include '../db.php';
+include '../model/db.php';
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $name = $_POST['name'];
@@ -13,7 +13,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             VALUES ('$name', '$email', '$phone', '$concern', '$message')";
 
     if (mysqli_query($conn, $sql)) {
-        echo "<script>alert('Form submitted successfully!'); window.location.href='index.html';</script>";
+        echo "<script>alert('Form submitted successfully!'); window.location.href='../views/home.html';</script>";
+
     } else {
         echo "Error: " . mysqli_error($conn);
     }
